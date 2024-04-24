@@ -1,6 +1,6 @@
-package kg.mega.rent.models;
+package kg.mega.rent.models.dtos;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -9,12 +9,12 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Entity
-@Table(name = "addresses")
-public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ClientAddressDto {
+    @JsonFormat(pattern = "client_id")
     Long id;
+    String firstName;
+    String lastName;
+    String patronymic;
     String street;
     String house;
     int flat;
